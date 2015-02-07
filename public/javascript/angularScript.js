@@ -36,6 +36,19 @@ angular.module("JobRecommendation",['ui.router'])
     var u={
       users:[]
     };
+   
+   u.create=function(){
+        return $http.post('/users').success(function (data){
+            u.users.push(data);
+        })
+    }
+
+    u.getUser=function(username){
+      return $http.get('/users/'+username).then(function (res){
+        console.log(res.data);
+        return res.data;
+      })
+    } 
 
     return u;
   }])
