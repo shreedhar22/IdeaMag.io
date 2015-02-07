@@ -38,18 +38,7 @@
             </div>
         </script>
 
-        <script type="text/ng-template" id="/home.html">
-             <div class='page-header'>
-                  <h1>Job Recommendation</h1>
-             </div>
-             
-             <div ng-repeat="jobPost in user.jobPosts track by $index">
-                
-                {{jobPost.title}}:{{jobPost.description}}
-             </div>
-                 
-        </script>
-
+        
         
 </body>
 

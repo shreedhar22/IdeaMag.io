@@ -14,7 +14,17 @@ angular.module("JobRecommendation",['ui.router'])
                  
              })
 
-              
+              .state('home',{
+                 url:'/users/:id',
+                 templateUrl:'/home.html',
+                 controller:'HomeCtrl',
+                 resolve:{
+                  user: ['$stateParams','users',function($stateParams,users){
+                    return users.getUser($stateParams.id);
+                  }]
+                 }
+             });
+
             $urlRouterProvider.otherwise('login'); 
         }
       ])
@@ -36,8 +46,8 @@ angular.module("JobRecommendation",['ui.router'])
     var u={
       users:[]
     };
-   
-   u.create=function(){
+
+    u.create=function(){
         return $http.post('/users').success(function (data){
             u.users.push(data);
         })
@@ -48,7 +58,8 @@ angular.module("JobRecommendation",['ui.router'])
         console.log(res.data);
         return res.data;
       })
-    } 
+    }
+    
 
     return u;
   }])
@@ -76,4 +87,19 @@ angular.module("JobRecommendation",['ui.router'])
          }          
  }])
 
+.controller('HomeCtrl',['$scope','users','user',function($scope,users,user){
+         $scope.users=users.users;
+         $scope.user=user;
+         console.log("user:"+user);
+         $scope.username='';
+         $scope.password='';
+         $scope.name='';
+         
+
+        $jobPost={title:"",description:""};
+        
+         if($scope.user==null){
+
+         }
+ }])
 
