@@ -20,22 +20,37 @@ var JobPost=mongoose.model('JobPosts');
 /*router.get('/user/:user/jobPosts',function(req,res,next){
         
 })*/
-
+router.get('/',function(req,res,next){
+  res.render('home');
+})
 //get user depending on the username specified
 router.get('/users/:username',function(req,res,next){
-      if(err){return next(err);}
+    //  if(err){return next(err);}
       //if (password==req.user.password){
-        
-        var query=User.findById(req.param('username'));
+        console.log('with params');
+       /* var query=User.findById(req.param('username'));
         console.log("query: "+query);
         query.exec(function(err,user){
          if(err){return next(err);}
          if(!user){return next(new Error('Cant find user'));}
              //req.user.populate('jobPosts',function(err,user){
              //	console.log(user.jobPosts);
-             	res.json(user);
+             	console.log('with params')
+              res.json(user);
              //})
-         })
+         })*/
+    
+       User.findOne({"username":req.params.username}, function(err, user) {
+            if (err){return next(err);}
+            user.populate('jobPosts',function(err,user){
+                if (err) { return next(err); }
+                console.log(user.jobPosts[0].description)
+                console.log(user.username);
+                res.json(user);
+            })
+          
+        });
+        
      // }else{
      //     res.json("password incorrect");
      // }
@@ -48,13 +63,14 @@ router.post('/users',function(req,res,next){
 		res.json(user);
 	});
 })
-
+/*
 router.get('/users',function(req,res,next){
 	User.find(function(err,users){
 		if(err){return next(err);}
+    console.log('without params');
 		res.json(users);
 	});
-});
+});*/
 
 //as soon as new job is posted enter that job for those users that match their interests//
 router.post('/jobs',function(req,res,next){
