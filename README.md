@@ -1,7 +1,7 @@
-﻿# JobRecommendation
+﻿# A Social network for engineers to collaborate on their ideas
 
  <ul>
-<li>Recommend exactly suitable jobs/interns to users.
-<li>Rank users based on their professional and academic experience. 
-<li>Make it easy for employers to seek an exact match for the position available by recommending candidates to  them.
- <ul/>
+<li>Users can post their ideas, designs, implemntations, links  and collaborate/comment/like on other people's work
+<li>Make connections with friends, collegues, professors; follow topics/people
+<li>Get recommended with jobs that match their skills
+<ul/>
