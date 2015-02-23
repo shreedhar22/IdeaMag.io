@@ -1,4 +1,4 @@
-﻿# A Social network for engineers to collaborate on their ideas
+﻿# A social network for engineers to collaborate on ideas
 
  <ul>
 <li>Users can post their ideas, designs, implemntations, links  and collaborate/comment/like on other people's work
