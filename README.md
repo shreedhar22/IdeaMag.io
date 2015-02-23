@@ -1,4 +1,4 @@
-﻿# A social network for engineers to collaborate on ideas
+﻿# IdeaMag.io
 
  <ul>
 <li>Users can post their ideas, designs, implemntations, links  and collaborate/comment/like on other people's work
